@@ -294,13 +294,13 @@ part_prep_latex_hhline <- function(part, col_width, col_halign_default, head=FAL
   #* Add the multirow tag where appropriate
   logic <- part$rowspan > 1
   part$value[logic] <- 
-    paste0("\\multirow{", part$rowspan[logic], "}{*}{", part$value[logic], "}")
+    paste0("\\multirow{", as.integer(part$rowspan[logic]), "}{*}{", part$value[logic], "}")
   
   #* Add blank multicolumn tags to fill multirow spaces
   #* set the colspan and rowspan to prevent deletion.
   #*   They are set to -1 to indicate that they are fillers
   logic <- part$html_row != part$row & part$html_col == part$col
-  part$value[logic] <- paste0("\\multicolumn{", part$colspan[logic], "}",
+  part$value[logic] <- paste0("\\multicolumn{", as.integer(part$colspan[logic]), "}",
                               "{", part$left_border[logic], "c", part$right_border[logic], "}{}")
   part$rowspan[logic] <- -1
   part$colspan[logic] <- part$colspan[logic] * -1
@@ -309,7 +309,7 @@ part_prep_latex_hhline <- function(part, col_width, col_halign_default, head=FAL
   logic <- part$colspan > 1 | (part$left_border != "" | part$right_border != "") | 
             !(part$html_row != part$row & part$html_col == part$col)
   part$value[logic] <- 
-    paste0("\\multicolumn{", part$colspan[logic], "}{", 
+    paste0("\\multicolumn{", as.integer(part$colspan[logic]), "}{", 
            part$left_border[logic], 
            #* 'p' isn't a valid alignment in 'multicol', so we replace it with 'r'
            sub("p", "r", substr(part$halign[logic], 1, 1)), 
