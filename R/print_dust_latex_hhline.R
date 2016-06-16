@@ -25,7 +25,7 @@ print_dust_latex_hhline <- function(x, ..., asis=TRUE)
     {
       chunk_label <- knitr::opts_current$get("label")
       if (is.null(chunk_label))
-        paste0("tab:pixie-", getOption("pixie_count"))
+        paste0("tab:pixie-", as.integer(getOption("pixie_count")))
       else
         paste0("tab:", chunk_label)
     }
