@@ -80,6 +80,10 @@
 #'   generated.  Defaults to \code{FALSE}.
 #' @param border_collapse \code{character(1)}. One of \code{"collapse"}, 
 #'   \code{"separate"}, \code{"initial"}, or \code{"inherit"}.
+#' @param html_preserve \code{logical(1)}. When \code{TRUE}, HTML output is returned
+#'   wrapped in \code{htmltools::htmlPreserve}. If using LaTeX style equations in 
+#'   an HTML table, it may be necessary to set this to \code{FALSE}. Do this at
+#'   your own risk; this has not been thoroughly field tested.
 #' @param ... Additional arguments to pass to \code{tidy}
 #' @param ungroup Used when a \code{grouped_df} object is passed to \code{dust}.
 #'   When \code{TRUE} (the default), the object is ungrouped and dusted 
@@ -169,7 +173,8 @@ dust.default <- function(object, ...,
                  longtable = getOption("pixie_longtable", FALSE),
                  hhline = getOption("pixie_hhline", FALSE),
                  bookdown = getOption("pixie_bookdown", FALSE),
-                 border_collapse = getOption("pixie_border_collapse", "collapse"))
+                 border_collapse = getOption("pixie_border_collapse", "collapse"),
+                 html_preserve = getOption("pixie_html_preserve", TRUE))
 {
   coll <- checkmate::makeAssertCollection()
   
@@ -287,6 +292,7 @@ dust.default <- function(object, ...,
                  tabcolsep = 6,
                  hhline = hhline,
                  bookdown = bookdown,
+                 html_preserve = html_preserve,
                  print_method = pixiedust_print_method()),
             class = "dust")
 
