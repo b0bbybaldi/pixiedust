@@ -21,7 +21,8 @@ dust(object, ...)
   longtable = getOption("pixie_longtable", FALSE),
   hhline = getOption("pixie_hhline", FALSE),
   bookdown = getOption("pixie_bookdown", FALSE),
-  border_collapse = getOption("pixie_border_collapse", "collapse"))
+  border_collapse = getOption("pixie_border_collapse", "collapse"),
+  html_preserve = getOption("pixie_html_preserve", TRUE))
 
 \method{dust}{grouped_df}(object, ungroup = TRUE, ...)
 
