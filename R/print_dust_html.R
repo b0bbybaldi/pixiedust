@@ -87,7 +87,7 @@ print_dust_html <- function(x, ..., asis=TRUE,
   }
   else if (asis){
     if (x$html_preserve) knitr::asis_output(htmltools::htmlPreserve(non_interactive))
-    else kintr::asis_output(non_interactive)
+    else knitr::asis_output(non_interactive)
   }
   else { 
     if (x$html_preserve) htmltools::htmlPreserve(non_interactive)
