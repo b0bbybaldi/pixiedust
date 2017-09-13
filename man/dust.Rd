@@ -124,6 +124,11 @@ adjoining borders tend to double up and look thicker than when using
 \item{bookdown}{Logical. When \code{TRUE}, \code{bookdown} style labels are
 generated.  Defaults to \code{FALSE}.}
 
+\item{html_preserve}{\code{logical(1)}. When \code{TRUE}, HTML output is returned
+   wrapped in \code{htmltools::htmlPreserve}. If using LaTeX style equations in 
+   an HTML table, it may be necessary to set this to \code{FALSE}. Do this at
+   your own risk; this has not been thoroughly field tested.}
+
 \item{border_collapse}{\code{character(1)}. One of \code{"collapse"}, 
 \code{"separate"}, \code{"initial"}, or \code{"inherit"}.}
 
