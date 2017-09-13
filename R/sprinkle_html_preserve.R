@@ -38,7 +38,7 @@ sprinkle_html_preserve <- function(x,
 #' @export
 
 sprinkle_html_preserve.default <- function(x, 
-                                      bookdown = getOption("pixie_html_preserve", FALSE),
+                                      html_preserve = getOption("pixie_html_preserve", FALSE),
                                       ...)
 {
   coll <- checkmate::makeAssertCollection()
