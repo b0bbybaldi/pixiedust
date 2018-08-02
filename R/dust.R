@@ -1,5 +1,8 @@
 #' @name dust
 #' @export dust
+#' @importFrom modelgenerics tidy
+#' @importFrom modelgenerics glance
+#' @import broom
 #' 
 #' @title Dust Table Construction
 #' @description Dust tables consist of four primary components that are 
@@ -197,7 +200,7 @@ dust.default <- function(object, ...,
   #* as given.  All other objects are tidied.
   if (!inherits(object, "data.frame") | tidy_df)
   {
-    tidy_object <- modelgenerics::tidy(object, ...)
+    tidy_object <- tidy(object, ...)
   }
   else if (inherits(object, "data.frame"))
   {
