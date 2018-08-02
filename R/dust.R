@@ -197,7 +197,7 @@ dust.default <- function(object, ...,
   #* as given.  All other objects are tidied.
   if (!inherits(object, "data.frame") | tidy_df)
   {
-    tidy_object <- broom::tidy(object, ...)
+    tidy_object <- modelgenerics::tidy(object, ...)
   }
   else if (inherits(object, "data.frame"))
   {

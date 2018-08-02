@@ -84,7 +84,7 @@ prep_gaze_tidy <- function(fits, fit_names, digits){
         function(fit, name)
         {
           data.frame(model = name,
-                     broom::tidy(fit),
+                     modelgenerics::tidy(fit),
                      stringsAsFactors = FALSE)
         },
       fit = fits,
@@ -137,7 +137,7 @@ prep_gaze_glance <- function(fits, fit_names, glance_vars, digits){
         function(fit, name)
         {
           data.frame(model = name,
-                     broom::glance(fit),
+                     modelgenerics::glance(fit),
                      stringsAsFactors = FALSE)
         },
       fit = fits,

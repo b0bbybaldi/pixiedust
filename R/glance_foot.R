@@ -55,7 +55,7 @@ glance_foot <- function(fit, col_pairs, total_cols,
   #* col_pairs is less then half of total_cols
   #* glance_stats are all found in names(tidy(fit))
   
-  g <- broom::glance(fit)
+  g <- modelgenerics::glance(fit)
   
   coll <- checkmate::makeAssertCollection()
   
